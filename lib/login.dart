@@ -1,6 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:qara/component/textformfeild.dart';
+
+import 'logic/logicCubit.dart';
+
+class LoginScreen extends StatelessWidget {
+  const LoginScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => LoginCubit(),
+      child: Login(),
+    );
+  }
+}
 
 class Login extends StatefulWidget {
   Login({super.key});
@@ -102,6 +117,7 @@ class _LoginState extends State<Login> {
                                 height: 50,
                                 child: MaterialButton(
                                   onPressed: () {
+                                      
                                     if (formkey.currentState!.validate()) {
                                       debugPrint(emailcontroler.text);
                                     }
@@ -110,6 +126,11 @@ class _LoginState extends State<Login> {
                                       debugPrint(passwordcontroller.text);
                                     }
                                     ;
+                                    context.read<LoginCubit>().login(
+
+                                      emailcontroler.text,
+                                      passwordcontroller.text,   
+                                    );
                                   },
                                   color:
                                       formkey.currentState?.validate() ?? true
