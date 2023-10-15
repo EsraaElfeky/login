@@ -16,7 +16,7 @@ class _LoginState extends State<Login> {
 
   var formkey = GlobalKey<FormState>();
 
-  // bool hidePassword = true;
+  bool hidePassword = true;
 
   @override
   Widget build(BuildContext context) {
