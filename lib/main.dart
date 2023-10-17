@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:qara/login.dart';
+import 'package:qara/dio/dio.dart';
+import 'package:qara/login/ui/login.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  DioHelper.init();
   runApp(const MyApp());
 }
 

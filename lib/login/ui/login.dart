@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:qara/component/textformfeild.dart';
+import 'package:qara/login/logic/logicCubit.dart';
 
-import 'logic/logicCubit.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -42,9 +42,7 @@ class _LoginState extends State<Login> {
           padding: const EdgeInsets.all(80.0),
           child: Stack(
             children: [
-              Expanded(
-                  child:
-                      const Image(image: AssetImage('assets/images/qara.PNG'))),
+              const Image(image: AssetImage('assets/images/qara.PNG')),
               Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: Column(
@@ -102,7 +100,7 @@ class _LoginState extends State<Login> {
                                 controller: passwordcontroller,
                                 keyboardType: TextInputType.visiblePassword,
                                 validator: (value) {
-                                  if (value!.length > 6 || value.isEmpty) {
+                                  if (value!.length > 10 || value.isEmpty) {
                                     return 'invalid_password';
                                   } else {
                                     return null;
@@ -131,6 +129,7 @@ class _LoginState extends State<Login> {
                                       emailcontroler.text,
                                       passwordcontroller.text,   
                                     );
+                                    
                                   },
                                   color:
                                       formkey.currentState?.validate() ?? true
