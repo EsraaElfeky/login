@@ -21,6 +21,6 @@ class LoginCubit extends Cubit<LoginState> {
 
     print(result.data['firstName'] + result.data['lastName']);
     print(respoce.firstName + respoce.lastName);
-    emit(state.copyWith(email: email, password: password));
+    emit(state.copyWith(email: email, password: password ,respoce: respoce));
   }
 }
