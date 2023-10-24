@@ -11,7 +11,9 @@ Widget defaultTFF({
   IconData? sufix,
   bool ispassword = false,
   int? maxLength,
-  bool maxLengthEnforce=true
+  bool maxLengthEnforce = true,
+  Function? suffixClick,
+  Function? prefixClick,
 }) =>
     TextFormField(
       controller: controller,
@@ -23,10 +25,20 @@ Widget defaultTFF({
       onChanged: (value) => onchange,
       onFieldSubmitted: (value) => onsubmit,
       decoration: InputDecoration(
-        prefixIcon: Icon(prefix),
+        prefixIcon: InkWell
+        (onTap: () {
+          if(prefixClick != null)
+          prefixClick();
+        },
+          child: Icon(prefix)),
         hintText: lable,
         border: const OutlineInputBorder(),
-        suffixIcon: Icon(sufix),
-        
+        suffixIcon: InkWell(
+          onTap: () {
+            if(suffixClick != null)
+            suffixClick();
+          },
+          child: Icon(sufix),
+        ),
       ),
     );

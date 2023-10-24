@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:qara/add_product/ui/add_product.dart';
 import 'package:qara/component/textformfeild.dart';
 import 'package:qara/login/logic/logicCubit.dart';
+import 'package:qara/page1/pageui/uipage.dart';
 
 
 class LoginScreen extends StatelessWidget {
@@ -129,7 +131,9 @@ class _LoginState extends State<Login> {
                                       emailcontroler.text,
                                       passwordcontroller.text,   
                                     );
-                                    
+                                    Navigator.push(context, MaterialPageRoute(
+                                      builder: (context) => const Paggg(),
+                                    ));
                                   },
                                   color:
                                       formkey.currentState?.validate() ?? true
